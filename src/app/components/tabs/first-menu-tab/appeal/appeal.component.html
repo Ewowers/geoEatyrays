@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-tab-button tab="menu" style="float: left; background: transparent">
+      <ion-icon
+        style="color: #000"
+        size="large"
+        color="light"
+        name="arrow-back-outline"
+      ></ion-icon>
+    </ion-tab-button>
+    <ion-title class="ion-text-start">Новое обращение</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating" color="medium" inputmode="text"
+          >Заголовок обращения</ion-label
+        >
+        <ion-input pattern="text" required="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" color="medium"
+          >Текст обращения</ion-label
+        >
+        <ion-textarea auto-grow inputmode="text" required="true"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label color="medium" class="ion-padding-horizontal"
+          >Добавить фото</ion-label
+        >
+        <ion-label>
+          <ion-icon
+            style="color: #000"
+            color="success"
+            size="large"
+            name="image-outline"
+          ></ion-icon>
+        </ion-label>
+        <ion-input class="file-input" type="file" accept="image/*"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-content>

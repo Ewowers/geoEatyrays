@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-start">Мои обращения</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col size-md="6" offset-md="3">
+      <ion-list>
+        <app-appeal-item
+          *ngFor="let appeal of appeals"
+          [routerLink]="appeal['id']"
+          [appealTitle]="appeal['title']"
+          [date]="appeal['date']"
+          [text]="appeal['text']"
+        ></app-appeal-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-content>

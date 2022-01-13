@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title>Профиль</ion-title>
+    <ion-icon
+      (click)="openModalProfileEdit()"
+      slot="end"
+      size="large"
+      name="create-outline"
+      class="ion-padding-end"
+      style="color: #000"
+    ></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col size-md="6" offset-md="3">
+      <ion-card>
+        <ion-list>
+          <ion-item>
+            <ion-label>E-mail</ion-label>
+            <ion-label>{{ user['email'] }}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Имя</ion-label>
+            <ion-label>{{ user['name'] }}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Фамилия</ion-label>
+            <ion-label>{{ user['lastname'] }}</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>ИИН</ion-label>
+            <ion-label>{{ user['iin'] }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size-md="6" offset-md="3">
+      <ion-list>
+        <ion-item routerLink="my-appeals">Мои обращения</ion-item>
+        <ion-item routerLink="about-app">О приложении</ion-item>
+        <ion-item
+          button="true"
+          (click)="chooseLanguage()"
+          class="ion-justify-content-between"
+        >
+          <ion-label>Язык</ion-label>
+          <ion-badge color="medium">{{ currentLanguage }}</ion-badge>
+        </ion-item>
+      </ion-list>
+      <ion-button fill="clear" (click)="openModalAuth()"
+        >Выйти из приложения</ion-button
+      >
+    </ion-col>
+  </ion-row>
+</ion-content>

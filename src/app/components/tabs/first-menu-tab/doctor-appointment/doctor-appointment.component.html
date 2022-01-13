@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-tab-button tab="menu" style="float: left; background: transparent">
+      <ion-icon
+        size="large"
+        color="light"
+        name="arrow-back-outline"
+        style="color: #000"
+      ></ion-icon>
+    </ion-tab-button>
+    <ion-title class="ion-text-start">Запись к врачу</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-item button="true" (click)="showMop()">
+        <ion-label>
+          <h2>Медицинская организация прикрепления</h2>
+          <ion-label color="medium"> Выберите МОП </ion-label>
+        </ion-label>
+      </ion-item>
+      <ion-item button="true" (click)="showMop()">
+        <ion-label>
+          <h2>Подразделение</h2>
+          <ion-label color="medium"> Выберите подразделение </ion-label>
+        </ion-label>
+      </ion-item>
+      <ion-item button="true" (click)="showMop()">
+        <ion-label>
+          <h2>Специалист</h2>
+          <ion-label color="medium"> Выберите специалиста </ion-label>
+        </ion-label>
+      </ion-item>
+      <ion-item button="true" (click)="showMop()">
+        <ion-label>
+          <h2>ФИО доктора</h2>
+          <ion-label color="medium"> Выберите доктора </ion-label>
+        </ion-label>
+      </ion-item>
+      <ion-item button="true">
+        <ion-label>
+          <h2>Дата приема</h2>
+          <ion-label color="medium">
+            <ion-datetime
+              displayFormat="HH:mm"
+              cancel-text="Отмена"
+              done-text="Готово"
+              placeholder="Выберите дату приема"
+            ></ion-datetime>
+          </ion-label>
+        </ion-label>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-content>

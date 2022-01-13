@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Земельные отношения</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!--<ion-content>
+  <div>
+    <ion-card *ngFor="let administration of administrations">
+      <ion-card-header>
+        <ion-card-subtitle style="color: rgb(231, 172, 172)">Лот: {{administration.lot}}</ion-card-subtitle>
+        <ion-card-subtitle>адресс: {{administration.location}}</ion-card-subtitle>
+        <ion-card-subtitle>целевое назначение {{administration.targerValue}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        Дата и време проведение аукциона <br />
+        {{administration.date}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>-->
+<ion-content>
+  <div *ngFor="let administration of administrations">
+    <ion-item (click)="administration.isOpen = !administration.isOpen">
+      <ion-icon
+        [name]="administration.isOpen ? 'chevron-down' : 'chevron-forward'"
+        slot="start"
+        style="color: #000"
+      ></ion-icon>
+      {{administration.region}}
+    </ion-item>
+    <div *ngIf="administration.isOpen">
+      <ion-card *ngFor="let data of administration.datas">
+        <ion-card-header>
+          <ion-card-subtitle style="color: rgb(231, 172, 172)"
+            >Лот: {{data.lot}}</ion-card-subtitle
+          >
+          <ion-card-subtitle>Район: {{data.category}}</ion-card-subtitle>
+          <ion-card-subtitle
+            >Целевое назначение: {{data.targerValue}}</ion-card-subtitle
+          >
+          <ion-card-subtitle
+            >Описание: <br />
+            {{data.description}}</ion-card-subtitle
+          >
+        </ion-card-header>
+
+        <ion-card-content>Дата аукциона {{data.date}} </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

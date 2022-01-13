@@ -1,0 +1,53 @@
+<ion-header [translucent]="false">
+  <ion-toolbar color="success">
+    <ion-title size="small" class="ion-text-center ion-padding">
+      Меню
+    </ion-title>
+    <ion-searchbar
+      type="text"
+      debounce="500"
+      (ionChange)="getItems($event)"
+      placeholder="Поиск"
+    ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar color="success">
+      <ion-searchbar type="text" debounce="500" (ionChange)="getItems($event)" placeholder="Поиск"></ion-searchbar>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <!-- <ion-list *ngIf="isItemAvailable"> -->
+  <ion-row>
+    <ion-col
+      size-xs="6"
+      size-sm="6"
+      size-md="3"
+      size-lg="2"
+      *ngFor="let item of menuItems"
+    >
+      <ion-card
+        button="true"
+        [routerLink]="item['src']"
+        class="ion-text-center"
+        style="
+          background: rgba(255, 255, 0, 0.055);
+          border-radius: 30px;
+          border: 2px solid orange;
+        "
+      >
+        <ion-card-header>
+          <ion-icon
+            style="color: #000"
+            [name]="item['icon']"
+            size="large"
+            color="success"
+          ></ion-icon>
+          <ion-card-subtitle>{{ item['title'] }}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

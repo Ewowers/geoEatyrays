@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title class="ion-text-center">
+      Оповещения
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <app-notification-item
+      *ngFor="let notification of notifications"
+      [routerLink]="notification.id"
+      [newTitle]="notification.title"
+      [text]="notification.text"
+      [date]="notification.date">
+    </app-notification-item>
+  </ion-list>
+</ion-content>

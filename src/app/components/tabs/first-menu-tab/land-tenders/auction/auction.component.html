@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-icon
+      class="ion-padding-start"
+      size="large"
+      name="arrow-back-outline"
+      slot="start"
+      *ngIf="!menu"
+      (click)="showItems('menu')"
+      style="color: #000"
+    ></ion-icon>
+    <ion-buttons slot="start" *ngIf="menu">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-start">Аукцион</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row *ngIf="menu">
+    <ion-col>
+      <ion-item>
+        <ion-label (click)="showItems('atyrau')">
+          <h2>Г. Атырау</h2>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label (click)="showItems('regions')">
+          <h2>Административные районы</h2>
+        </ion-label>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="atyrau">
+    <ion-col>
+      <ion-item routerLink="map">
+        <ion-label>
+          <h2>Жумыскер-2</h2>
+          <ion-label color="tertiary">
+            <p>Предстоящий</p>
+          </ion-label>
+        </ion-label>
+      </ion-item>
+      <ion-item routerLink="map">
+        <ion-label>
+          <h2>Ул. Сатпаева, 5</h2>
+          <ion-label color="success">
+            <p>Состоявшийся</p>
+          </ion-label>
+        </ion-label>
+      </ion-item>
+      <ion-item routerLink="map">
+        <ion-label>
+          <ion-text
+            >Атырауский сельский округ, село Жанаталап, улица №6</ion-text
+          >
+          <ion-label color="danger">
+            <p>Несостоявшийся</p>
+          </ion-label>
+        </ion-label>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="regions">
+    <ion-col>
+      <ion-item routerLink="map">
+        <ion-label>
+          <h2>Индерский район</h2>
+          <ion-label color="medium">12 аукционов</ion-label>
+        </ion-label>
+      </ion-item>
+      <ion-item routerLink="map">
+        <ion-label>
+          <h2>Исатайский район</h2>
+          <ion-label color="medium">3 аукционов</ion-label>
+        </ion-label>
+      </ion-item>
+      <ion-item routerLink="map">
+        <ion-label>
+          <h2>Кзылкогинский район</h2>
+          <ion-label color="medium">6 аукционов</ion-label>
+        </ion-label>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-content>

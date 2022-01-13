@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-start">Административные учреждения</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-item>
+  <ion-label>Регионы</ion-label>
+  <ion-select value="Атырауская область" (ionChange)="fetchData($event)">
+    <ion-select-option value="Атырауская область"
+      >Атырауская область</ion-select-option
+    >
+    <ion-select-option value="Атырау">г. Атырау</ion-select-option>
+    <ion-select-option value="Жылыойский">Жылыойский район</ion-select-option>
+    <ion-select-option value="Исатайский">Исатайский район</ion-select-option>
+    <ion-select-option value="Индерский">Индерский район</ion-select-option>
+    <ion-select-option value="Кзылкогинский"
+      >Кзылкогинский район</ion-select-option
+    >
+    <ion-select-option value="Курмангазинский"
+      >Курмангазинский район</ion-select-option
+    >
+    <ion-select-option value="Макатский">Макатский район</ion-select-option>
+    <ion-select-option value="Махамбетский"
+      >Махамбетский район</ion-select-option
+    >
+  </ion-select>
+</ion-item>
+
+<ion-content *ngIf="menuItems[0].data">
+  <div *ngFor="let item of menuItems; let i = index" [id]="item.id">
+    <ion-item (click)="item.active = !item.active">
+      <ion-icon
+        [name]="item.active ? 'chevron-down' : 'chevron-forward'"
+        slot="start"
+        style="color: #000"
+      ></ion-icon>
+      <strong>{{item.title}}</strong>
+    </ion-item>
+    <div *ngIf="item.active">
+      <ion-item [id]="i" *ngFor="let data of item.data">
+        <ion-card style="width: 100%">
+          <ion-card-header>
+            <ion-card-subtitle>Наименование:</ion-card-subtitle>
+            <p style="color: black">
+              {{ data.title_rus ? data.title_rus : '' }}
+            </p>
+            <ion-card-subtitle>Адрес:</ion-card-subtitle>
+            <p style="color: black">
+              {{ data.address_rus ? data.address_rus : '' }}
+            </p>
+            <ion-card-subtitle>Контакты:</ion-card-subtitle>
+            <p style="color: black">{{ data.contacts ? data.contacts : '' }}</p>
+            <ion-card-subtitle>Рабочее время:</ion-card-subtitle>
+            <p style="color: black">
+              {{ data.work_time ? data.work_time : '' }}
+            </p>
+            <ion-card-subtitle *ngIf="data.description_rus"
+              >Описание:</ion-card-subtitle
+            >
+            <p style="color: black" *ngIf="data.description_rus">
+              {{ data.description_rus ? data.description_rus : '' }}
+            </p>
+          </ion-card-header>
+        </ion-card>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>

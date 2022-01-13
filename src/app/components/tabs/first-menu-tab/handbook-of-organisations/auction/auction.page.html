@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Аукцион</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item (click)="administrationOpen = !administrationOpen">
+    <ion-icon
+      [name]="administrationOpen ? 'chevron-down' : 'chevron-forward'"
+      slot="start"
+      style="color: #000"
+    ></ion-icon>
+    Административный район
+  </ion-item>
+  <div *ngIf="administrationOpen">
+    <div *ngFor="let administration of administrations">
+      <ion-item (click)="administration.isOpen = !administration.isOpen">
+        <ion-icon
+          [name]="administration.isOpen ? 'chevron-down' : 'chevron-forward'"
+          slot="start"
+          style="color: #000"
+        ></ion-icon>
+        {{administration.region}}
+      </ion-item>
+      <div *ngIf="administration.isOpen">
+        <ion-card *ngFor="let data of administration.datas">
+          <ion-card-header>
+            <ion-card-subtitle style="color: rgb(231, 172, 172)"
+              >Лот: {{data.lot}}</ion-card-subtitle
+            >
+            <ion-card-subtitle>Район: {{data.category}}</ion-card-subtitle>
+            <ion-card-subtitle
+              >Целевое назначение: {{data.targerValue}}</ion-card-subtitle
+            >
+            <ion-card-subtitle
+              >Описание: {{data.description}}</ion-card-subtitle
+            >
+          </ion-card-header>
+
+          <ion-card-content>Дата аукциона {{data.date}} </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+  <ion-item (click)="eatyrayOpen = !eatyrayOpen">
+    <ion-icon
+      [name]="eatyrayOpen ? 'chevron-down' : 'chevron-forward'"
+      slot="start"
+      style="color: #000"
+    ></ion-icon>
+    Г. Атырау
+  </ion-item>
+  <div *ngIf="eatyrayOpen">
+    <ion-card *ngFor="let eatyray of eatyrays">
+      <ion-card-header>
+        <ion-card-subtitle style="color: rgb(231, 172, 172)"
+          >Лот: {{eatyray.lot}}</ion-card-subtitle
+        >
+        <ion-card-subtitle
+          >Целевое назначение: {{eatyray.targerValue}}</ion-card-subtitle
+        >
+        <ion-card-subtitle>Описание: {{eatyray.description}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>Дата аукциона {{eatyray.date}} </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

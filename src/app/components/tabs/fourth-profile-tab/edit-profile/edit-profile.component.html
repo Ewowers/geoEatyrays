@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Редактирование профиля</ion-title>
+    <ion-icon
+      size="large"
+      name="close"
+      (click)="dismiss()"
+      slot="end"
+      style="float: right"
+      class="ion-padding-end"
+      style="color: #000"
+    ></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--  <form #editForm="editForm">-->
+  <form>
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col
+          class="ion-align-self-center"
+          size-md="6"
+          size-lg="5"
+          size-xs="12"
+        >
+          <div class="ion-padding">
+            <ion-item>
+              <ion-label color="medium" position="floating">Имя</ion-label>
+              <ion-input
+                name="name"
+                type="text"
+                value="Иван"
+                ngModel
+                required
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="medium" position="floating">Фамилия</ion-label>
+              <ion-input
+                name="lastname"
+                type="text"
+                value="Иванов"
+                ngModel
+                required
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="medium" position="floating">E-mail</ion-label>
+              <ion-input
+                name="email"
+                type="email"
+                value="test@gmail.com"
+                ngModel
+                required
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="medium" position="floating">ИИН</ion-label>
+              <ion-input
+                name="ИИН"
+                type="number"
+                value="123456789000"
+                ngModel
+                required
+              ></ion-input>
+            </ion-item>
+          </div>
+          <div class="ion-padding">
+            <!--            <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">Регистрация</ion-button>-->
+            <ion-button size="large" type="submit" expand="block"
+              >Сохранить изменения</ion-button
+            >
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

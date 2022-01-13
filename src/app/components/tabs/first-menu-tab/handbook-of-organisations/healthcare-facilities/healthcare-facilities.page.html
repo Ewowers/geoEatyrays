@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Объекты здравоохранения</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let data of arr">
+    <ion-item (click)="data.isOpen = !data.isOpen">
+      <ion-icon
+        [name]="data.isOpen ? 'chevron-down' : 'chevron-forward'"
+        slot="start"
+        style="color: #000"
+      ></ion-icon>
+      {{data.type}}
+    </ion-item>
+    <div *ngIf="data.isOpen">
+      <ion-card *ngFor="let bank of data.arr">
+        <ion-card-header>
+          <ion-card-subtitle style="color: rgb(231, 172, 172)"
+            >{{bank.title}}</ion-card-subtitle
+          >
+          <ion-card-subtitle>{{bank.address}}</ion-card-subtitle>
+          <ion-card-subtitle>{{bank.work_time}}</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content> {{bank.description}} </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

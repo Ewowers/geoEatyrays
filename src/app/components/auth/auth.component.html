@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>{{ isLoggedIn ? "Вход" : "Регистрация" }}</ion-title>
+    <ion-icon
+      size="large"
+      name="close"
+      (click)="dismiss()"
+      slot="end"
+      style="float: right"
+      class="ion-padding-end"
+      style="color: #000"
+    ></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!isLoggedIn">
+  <form #form="ngForm" (ngSubmit)="register(form)">
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col
+          class="ion-align-self-center"
+          size-md="6"
+          size-lg="10"
+          size-xs="12"
+        >
+          <div class="ion-padding">
+            <ion-item>
+              <ion-label color="medium" position="floating">Имя</ion-label>
+              <ion-input name="name" type="text" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="medium" position="floating">E-mail</ion-label>
+              <ion-input name="email" type="email" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="medium" position="floating">Пороль</ion-label>
+              <ion-input
+                name="password"
+                type="password"
+                ngModel
+                required
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="medium" position="floating"
+                >Подтвердите пороль</ion-label
+              >
+              <ion-input
+                name="confirm"
+                type="password"
+                ngModel
+                required
+              ></ion-input>
+            </ion-item>
+          </div>
+          <div class="ion-padding">
+            <ion-button
+              size="large"
+              type="submit"
+              [disabled]="form.invalid"
+              expand="block"
+              >Регистрация</ion-button
+            >
+          </div>
+          <div class="ion-padding ion-text-center">
+            <ion-label color="medium">Вы уже зарегестрированы?</ion-label>
+            <ion-button
+              type="submit"
+              expand="block"
+              fill="outline"
+              (click)="isLoggedIn = true"
+              >Вход</ion-button
+            >
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+
+<ion-content *ngIf="isLoggedIn" class="ion-justify-content-center">
+  <form #form="ngForm" (ngSubmit)="login(form)">
+    <ion-grid>
+      <ion-row class="ion-justify-content-center ion-align-self-center">
+        <ion-col
+          class="ion-align-self-center"
+          size-md="6"
+          size-lg="10"
+          size-xs="12"
+        >
+          <div class="ion-padding">
+            <ion-item>
+              <ion-label color="medium" position="floating">E-mail</ion-label>
+              <ion-input name="email" type="email" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="medium" position="floating">Пороль</ion-label>
+              <ion-input
+                name="password"
+                type="password"
+                ngModel
+                required
+              ></ion-input>
+            </ion-item>
+          </div>
+          <div class="ion-padding">
+            <ion-button
+              size="large"
+              type="submit"
+              [disabled]="form.invalid"
+              expand="block"
+              >Вход</ion-button
+            >
+          </div>
+          <div class="ion-padding ion-text-center">
+            <ion-label color="medium" class="ion-text-center"
+              >Еще нет аккаунта?</ion-label
+            >
+            <ion-button
+              type="submit"
+              expand="block"
+              fill="outline"
+              (click)="isLoggedIn = false"
+              >Регистрация</ion-button
+            >
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

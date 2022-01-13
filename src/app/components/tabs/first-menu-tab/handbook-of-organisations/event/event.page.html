@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>События города</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-card *ngFor="let data of datas">
+      <ion-card-header>
+        <ion-card-subtitle style="color: rgb(231, 172, 172)">
+          {{data.title_rus}}</ion-card-subtitle
+        >
+
+        <ion-card-subtitle> {{data.comment_rus}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>{{data.edate}} </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

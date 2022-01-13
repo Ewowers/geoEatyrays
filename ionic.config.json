@@ -1,0 +1,7 @@
+{
+  "name": "smart-geo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

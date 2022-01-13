@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-tab-button tab="menu" style="float: left; background: transparent">
+      <ion-icon
+        size="large"
+        color="light"
+        name="arrow-back-outline"
+        style="color: #000"
+      ></ion-icon>
+    </ion-tab-button>
+    <ion-title>Map</ion-title>
+  </ion-toolbar>
+  <ion-item button="true">
+    <ion-icon
+      size="large"
+      color="success"
+      name="calendar-outline"
+      style="color: #000"
+    ></ion-icon>
+    <ion-label>
+      <ion-datetime
+        displayFormat="HH:mm"
+        cancel-text="Отмена"
+        done-text="Готово"
+        placeholder="Все даты"
+      >
+      </ion-datetime>
+    </ion-label>
+  </ion-item>
+</ion-header>
+
+<ion-content
+  id="map"
+  [scrollY]="false"
+  [fullscreen]="false"
+  class="map-container"
+>
+  <ion-fab vertical="top" slot="fixed" style="position: absolute; top: 80px">
+    <ion-fab-button size="small" (click)="getCurrentCoordinates()">
+      <ion-icon name="locate-outline" style="color: #000"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
